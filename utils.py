@@ -17,6 +17,10 @@ def get_dict(file_name):
     return etof
 
 def get_matrices(en_embeddings, fr_embeddings, en_fr):
+    """
+    This function returns the matrix of X(eng embeddings) and Y(french embeddings)
+    from english-french word mappings and the respective word embeddings of those words
+    """
     en_words, fr_words = set(en_embeddings.keys()), set(fr_embeddings.keys())
     en_vecs, fr_vecs = [], []
 
