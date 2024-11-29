@@ -24,5 +24,3 @@ def test_model():
     R = pickle.load(open('./weights/rotation_matrix.p', 'rb'))
     accuracy = test(X_test, R, Y_test)
     return accuracy
-
-build_model()
