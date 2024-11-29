@@ -6,13 +6,15 @@ def get_dict(file_name):
     This function returns the english to french dictionary given a file where the each column corresponds to a word.
     Check out the files this function takes in your workspace.
     """
-    my_file = pd.read_csv(file_name, delimiter=' ')
+    df = pd.read_csv(file_name, delimiter=' ')
     etof = {}  # the english to french dictionary to be returned
-    for i in range(len(my_file)):
-        en = my_file.loc[i][0]
-        fr = my_file.loc[i][1]
-        etof[en] = fr  # <- PROBLEMATIC
-        # The above line introduces bias in the mapping as if one en value is mapped to multiple fr values then it will  only consider the last en value
+
+    for row in df.itertuples(index = False, name = None):
+        etof[row[0]] = row[1] # <- PROBLEMATIC
+        '''
+        The above line introduces bias in the mapping as if one en value 
+        is mapped to multiple fr values then it will only consider the last en value
+        '''
 
     return etof
 
